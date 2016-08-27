@@ -8,8 +8,6 @@ exports.up = function(knex, Promise) {
     return knex.schema.createTable('class', function(table) {
       table.increments();
       table.string('name');
-      table.integer('year');
-      table.string('semester');
     });
   }).then(function() {
     return knex.schema.createTable('industry', function(table) {
@@ -52,6 +50,8 @@ exports.up = function(knex, Promise) {
       table.integer('owner_id').references('id').inTable('owner').onDelete('cascade');
       table.integer('class_id').references('id').inTable('class').onDelete('cascade');
       table.boolean('did_graduate');
+      table.integer('year');
+      table.string('semester');
     });
   }).then(function(){
     return knex.schema.createTable('internal_notes', function(table) {

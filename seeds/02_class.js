@@ -1,19 +1,25 @@
 exports.seed = function(knex, Promise) {
 	return Promise.all([
 		knex('class').insert({
-			name: 'Business Success',
-			year: '2014',
-			semester: 'Fall'
+			name: 'Business Success'
 		}),
 		knex('class').insert({
-			name: 'Business Breakthrough',
-			year: '2015',
-			semester: 'Spring'
+			name: 'Business Breakthrough'
 		}),
 		knex('class').insert({
-			name: 'Dreambuilder',
-			year: '2015',
-			semester: 'Fall'
+			name: 'Dreambuilder'
+		}),
+		knex('class').insert({
+			name: 'Consulting'
+		}),
+		knex('class').insert({
+			name: 'Exito Para Negocios'
+		}),
+		knex('class').insert({
+			name: 'Listening to your Business'
+		}),
+		knex('class').insert({
+			name: 'Considering a Business?'
 		})
 	]);
 };

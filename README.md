@@ -13,6 +13,6 @@ MiCasa Business Lookup is a tool being developed for the Mi Casa Resource Center
 
 Built with:
 
-Node.js
-PostgreSQL
-Express
+* Node.js
+* PostgreSQL
+* Express

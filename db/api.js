@@ -4,6 +4,9 @@ module.exports = {
   getAllIndustries: function () {
     return knex('industry').select();
   },
+  getAllClasses: function () {
+    return knex('class').select();
+  },
   getAllCities: function () {
     return knex('business').select('city').distinct('city');
   },
@@ -65,5 +68,18 @@ module.exports = {
     return knex('internal_notes')
     .insert(note)
     .where('business_id', '=', note.business_id)
+  },
+  addBusiness: function (body) {
+    return knex('business').insert(body).returning('id')
+  },
+  addOwner: function (body) {
+    return knex('owner').insert(body).returning('id')
+  },
+  addBusinessOwner: function (businessId, ownerId) {
+    return knex('business_owner').insert({owner_id:ownerId, business_id:businessId})
+  },
+  addClassOwner: function(id, info) {
+    console.log("hitting this function");
+    return knex('class_owner').insert({owner_id: id, class_id:info.class_id, did_graduate:info.did_graduate, year:info.year, semester:info.semester})
   }
 };
