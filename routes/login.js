@@ -7,12 +7,11 @@ var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 
 router.post('/', function(req, res, next){
-  console.log(req.body);
-  console.log(queries.findUserByUserName(req.body.username));
+  console.log('request body', req.body);
   queries.findUserByUserName(req.body.username)
-  .then(function(){
+  .then(function(user){
     var plainTextPassword = req.body.password;
-    console.log(plainTextPassword);
+    console.log('password', plainTextPassword);
     if(user && bcrypt.compareSync(plainTextPassword, user.password)){
       jwt.sign(user, process.env.TOKEN_SECRET, {expiresIn: '1d'}, function(err, token){
         if(err){

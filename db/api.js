@@ -2,8 +2,8 @@ var knex = require('./knex');
 
 
 module.exports ={
-  findUserByUserName : function(userName){
-    return knex('account').where({"username": username}).first();
+  findUserByUserName : function(username){
+    return knex('account').where("username", "=", username).first();
   },
   addAccount : function(body){
     return knex('account').insert(body);
