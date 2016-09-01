@@ -30,7 +30,7 @@ app.use(helpers.authMiddleWare);
 app.use('/', routes);
 app.use('/users', users);
 app.use(helpers.ensureauthenticated);
-// app.use('/login', login);
+
 
 
 // catch 404 and forward to error handler
