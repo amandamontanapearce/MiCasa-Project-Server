@@ -1,6 +1,19 @@
 var knex = require('./knex');
 
-module.exports = {
+
+module.exports ={
+  findUserByUserName : function(username){
+    return knex('account').where("username", "=", username).first();
+  },
+  addAccount : function(body){
+    return knex('account').insert(body);
+  },
+  getAccount : function(){
+  return knex('account');
+  },
+  getOneAccount : function(id){
+  return knex('account').where({id: id});
+  },
   getAllIndustries: function () {
     return knex('industry').select();
   },
